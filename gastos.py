@@ -30,7 +30,24 @@ def add_entrada(aba,semana,dia,valor):
                 celula.value = valor
                 print("Valor adicionado")
                 return
-     print("Todos os valores diarios preenchidos!!")    
+     print("Todos os valores diarios preenchidos!!")
+
+def mostrar_categorias(aba2):
+     linha = 6
+     opcoesencontradas =[]
+     print("\n Categorias de custo: \n")
+     for linha in range(6,15):
+           nomecategoria =aba2.cell(row=linha, column=5)
+           if nomecategoria.value is not None:
+                print(f'{nomecategoria.value}\n')
+                opcoesencontradas.append(nomecategoria.value)
+     return opcoesencontradas
+
+                
+           
+      
+
+     
          
          
 
@@ -53,9 +70,9 @@ def registrar_gastos():
         if inicio == 's': return
         elif inicio == "e":
                 print("Digite a opção desejada: \n"
-                "1 para adicionar valores \n" \
-                "2 para visualizar entradas\n" \
-                "3 para visualizar gastos")
+                "||1 para adicionar entradas!|| \n" \
+                "||2 para visualizar entradas!||\n" \
+                "||3 para adicionar gastos!||")
                 opcao = input(": ")
                 if opcao == "1":
                      while True:
@@ -76,6 +93,16 @@ def registrar_gastos():
                         elif loop == "s":
                              break
                         else: print ("Digite uma resposta válida! ")
+                else opcao =="2":
+                    aba2=wb['resultado']
+                    while True:
+                         def mostrar_categoriaas(aba2):
+                         cat= input("Escolha a categoria do custo: ")
+                         
+
+
+
+
         else: print("Digite uma opção válida!")
     except: print("Ocorreu um erro! ")
 
