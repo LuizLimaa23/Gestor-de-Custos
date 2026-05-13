@@ -102,8 +102,9 @@ def registrar_gastos():
                          cat = int(input("Escolha a categoria do custo(De acordo com sua numeração): "))
                          escolhidarow = baserow + cat
                          mostrarcat = aba2.cell(row=escolhidarow, column=basecolum)
-                         valoradd = input(f"Digite o valor a ser adicionado na categoria {mostrarcat}")
-                         aba2.cell(row=escolhidarow, column=12).value = valoradd
+                         valoradd = input(f"Digite o valor a ser adicionado na categoria {mostrarcat.value}: ")
+                         aba2.cell(row=escolhidarow, column=12).value =valoradd
+                         wb.save(arquivoexcel)
                          loop= input("Valor adicionado com sucesso! Deseja [c]ontinuar ou [s]air? ").lower()
                          if loop == "c":
                              continue
