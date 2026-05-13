@@ -87,23 +87,46 @@ def registrar_gastos():
                             
                         add_entrada(aba, semana,dia,valor2)
                         wb.save(arquivoexcel)
-                        loop= input("Valor adicionado, deseja [c]ontinuar ou [s]air? ").lower()
+                        loop= input("Valor adicionado com sucesso! Deseja [c]ontinuar ou [s]air? ").lower()
                         if loop == "c":
                              continue
                         elif loop == "s":
                              break
                         else: print ("Digite uma resposta válida! ")
-                else opcao =="2":
+                elif opcao == "3":
                     aba2=wb['resultado']
+                    baserow = 5
+                    basecolum = 5
                     while True:
-                         def mostrar_categoriaas(aba2):
-                         cat= input("Escolha a categoria do custo: ")
+                         mostrar_categorias(aba2)
+                         cat = int(input("Escolha a categoria do custo(De acordo com sua numeração): "))
+                         escolhidarow = baserow + cat
+                         mostrarcat = aba2.cell(row=escolhidarow, column=basecolum)
+                         valoradd = input(f"Digite o valor a ser adicionado na categoria {mostrarcat}")
+                         aba2.cell(row=escolhidarow, column=12).value = valoradd
+                         loop= input("Valor adicionado com sucesso! Deseja [c]ontinuar ou [s]air? ").lower()
+                         if loop == "c":
+                             continue
+                         elif loop == "s":
+                             break
+                         else: print ("Digite uma resposta válida! ")
+
+
+        else: print("Digite uma opção válida!")
+                              
+                         
+
+                         
+
+
+
+                              
                          
 
 
 
 
-        else: print("Digite uma opção válida!")
+          
     except: print("Ocorreu um erro! ")
 
 
